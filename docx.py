@@ -61,6 +61,11 @@ nsprefixes = {
     'dcmitype': 'http://purl.org/dc/dcmitype/',
     'dcterms':  'http://purl.org/dc/terms/'}
 
+languageHeadingMap = {
+    'en': 'Heading',
+    'it': 'Titolo',
+    'de': 'berschrift',
+}
 
 def opendocx(file):
     '''Open a docx file, return a document XML tree'''
@@ -250,11 +255,6 @@ def contenttypes():
 
 def heading(headingtext, headinglevel, lang='en'):
     '''Make a new heading, return the heading element'''
-    languageHeadingMap = {
-        'en': 'Heading',
-        'it': 'Titolo',
-        'de': 'berschrift',
-    }
     # Make our elements
     paragraph = makeelement('p')
     pr = makeelement('pPr')
