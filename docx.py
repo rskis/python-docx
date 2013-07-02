@@ -250,11 +250,15 @@ def contenttypes():
 
 def heading(headingtext, headinglevel, lang='en'):
     '''Make a new heading, return the heading element'''
-    lmap = {'en': 'Heading', 'it': 'Titolo'}
+    languageHeadingMap = {
+        'en': 'Heading',
+        'it': 'Titolo',
+        'de': 'berschrift',
+    }
     # Make our elements
     paragraph = makeelement('p')
     pr = makeelement('pPr')
-    pStyle = makeelement('pStyle', attributes={'val': lmap[lang]+str(headinglevel)})
+    pStyle = makeelement('pStyle', attributes={'val': languageHeadingMap[lang]+str(headinglevel)})
     run = makeelement('r')
     text = makeelement('t', tagtext=headingtext)
     # Add the text the run, and the run to the paragraph
