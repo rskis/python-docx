@@ -809,7 +809,7 @@ def getdocumenttext(document):
     return paratextlist
 
 
-def coreproperties(title, subject, creator, keywords, lastmodifiedby=None):
+def coreproperties(title, subject, creator, keywords, lastmodifiedby=None, category='Examples', description='Examples'):
     '''Create core properties (common document properties referred to in the 'Dublin Core' specification).
     See appproperties() for other stuff.'''
     coreprops = makeelement('coreProperties', nsprefix='cp')
@@ -821,8 +821,8 @@ def coreproperties(title, subject, creator, keywords, lastmodifiedby=None):
         lastmodifiedby = creator
     coreprops.append(makeelement('lastModifiedBy', tagtext=lastmodifiedby, nsprefix='cp'))
     coreprops.append(makeelement('revision', tagtext='1', nsprefix='cp'))
-    coreprops.append(makeelement('category', tagtext='Examples', nsprefix='cp'))
-    coreprops.append(makeelement('description', tagtext='Examples', nsprefix='dc'))
+    coreprops.append(makeelement('category', tagtext=category, nsprefix='cp'))
+    coreprops.append(makeelement('description', tagtext=description, nsprefix='dc'))
     currenttime = time.strftime('%Y-%m-%dT%H:%M:%SZ')
     # Document creation and modify times
     # Prob here: we have an attribute who name uses one namespace, and that
